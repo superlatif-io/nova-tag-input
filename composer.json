@@ -1,0 +1,37 @@
+{
+    "name": "superlatif/nova-tag-input",
+    "description": "Tag input field for Laravel Nova.",
+    "authors": [
+        {
+            "name": "Simon Rapin",
+            "email": "simon@superlatif.io",
+            "homepage": "https://superlatif.io",
+            "role": "Developer"
+        }
+    ],
+    "keywords": [
+        "laravel",
+        "nova"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Superlatif\\NovaTagInput\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Superlatif\\NovaTagInput\\FieldServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
