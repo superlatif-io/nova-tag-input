@@ -38,7 +38,15 @@ class Tags extends Field
 
     public function autocompleteItems(array $items)
     {
-        return $this->withMeta(['autocompleteItems' => $items]);
+        /*
+         * Convert the user's items to the required syntax
+         */
+        $entries = [];
+        foreach ($items as $item) {
+            $entries[] = ['text' => $item];
+        }
+
+        return $this->withMeta(['autocompleteItems' => $entries]);
     }
 
 }

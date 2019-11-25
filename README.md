@@ -18,12 +18,12 @@ Tags::make(__("Tags"), 'tags')
     ->allowEditTags(true)
     ->addOnKeys([13 //enter, ':', ';', ','])
     ->autocompleteItems([
-        ['text' => 'Arizona'],
-        ['text' => 'California'],
-        ['text' => 'Colorado'],
-        ['text' => 'Michigan'],
-        ['text' => 'New York'],
-        ['text' => 'Texas'],
+        'Arizona',
+        'California',
+        'Colorado',
+        'Michigan',
+        'New York',
+        'Texas',
     ]),
 ```
 
@@ -33,7 +33,7 @@ Tags::make(__("Tags"), 'tags')
 | placeholder          | Hint displayed when the field is empty or after a list of existing tags | String  |
 | allowEditTags        | Allow inline tag edition                                                | Boolean |
 | addOnKeys            | Set of characters triggering tag insertion                              | Array   |
-| autocompleteItems    | Array of items used for autocompletion: **required syntax ['text' => 'Label']**                                  | Array   |
+| autocompleteItems    | Array of items used for autocompletion                                  | Array   |
 
 
 
