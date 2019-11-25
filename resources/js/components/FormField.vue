@@ -2,7 +2,7 @@
     <default-field :field="field" :errors="errors">
         <template slot="field">
             <vue-tags-input v-model="tag" :tags="tags" @tags-changed="tagsChanged"
-                            :add-on-key="field.addOnKeys"
+                            :add-on-key="addOnKeys"
                             :allow-edit-tags="field.allowEditTags"
                             :placeholder="field.placeholder"
                             :autocompleteItems="filteredItems"
@@ -19,12 +19,20 @@ export default {
     data() {
         return {
             tag: '',
-            tags: []
+            tags: [],
+            addOnKeys: [13, ',', ';'],
+            autocompleteItems: [],
         }
     },
     mixins: [FormField, HandlesValidationErrors],
 
     props: ['resourceName', 'resourceId', 'field'],
+
+    mounted() {
+        // Set up default parameters
+        this.autocompleteItems  = (this.field.autocompleteItems) ? this.field.autocompleteItems : this.autocompleteItems;
+        this.addOnKeys          = (this.field.addOnKeys) ? this.field.addOnKeys : this.addOnKeys;
+    },
 
     methods: {
         /*
@@ -62,7 +70,7 @@ export default {
 
     computed: {
         filteredItems() {
-            return this.field.autocompleteItems.filter(i => {
+            return this.autocompleteItems.filter(i => {
                 return i.text.toLowerCase().indexOf(this.tag.toLowerCase()) !== -1;
             });
         },
