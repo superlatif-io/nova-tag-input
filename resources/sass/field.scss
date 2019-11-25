@@ -24,3 +24,10 @@
         background-color: var(--danger) !important;
     }
 }
+.ti-autocomplete {
+    .ti-item {
+        &.ti-selected-item {
+            background-color: var(--primary) !important;
+        }
+    }
+}

@@ -11,6 +11,7 @@ composer require superlatif/nova-tag-input
 
 ## Example
 
+### Basic
 ```
 Tags::make(__("Tags"), 'tags')
     ->help("Press ENTER to add tag")
@@ -27,13 +28,22 @@ Tags::make(__("Tags"), 'tags')
     ]),
 ```
 
+### Autocomplete items from Eloquent
+```
+$tags = Tag::pluck('title')->get();
+Tags::make(__("Tags"), 'tags')
+    // ...
+    ->autocompleteItems($tags)
+    // ...
+```
+
 ### Parameters
 | Parameter            | Description                                                             | Type    |
 | -------------------- | ----------------------------------------------------------------------- | ------- |
 | placeholder          | Hint displayed when the field is empty or after a list of existing tags | String  |
 | allowEditTags        | Allow inline tag edition                                                | Boolean |
 | addOnKeys            | Set of characters triggering tag insertion                              | Array   |
-| autocompleteItems    | Array of items used for autocompletion                                  | Array   |
+| autocompleteItems    | Array of strings used for autocompletion                                | Array   |
 
 
 
