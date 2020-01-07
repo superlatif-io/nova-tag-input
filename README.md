@@ -2,7 +2,7 @@
 
 This plugin incorporate the [Vue Tags Input](https://github.com/JohMun/vue-tags-input) plugin by Johannes Munari into Laravel Nova by creating a new field type.
 
-![Nova Tag Input](https://superlatif.io/packages/nova-tag-input/tags-input-nova.gif)
+![Nova Tag Input](https://superlatif.io/packages/nova-tag-input/tags-input-nova.gif?1)
 
 ## Installing
 
