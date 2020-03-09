@@ -2,6 +2,7 @@
 
 namespace Superlatif\NovaTagInput;
 
+use Illuminate\Support\Arr;
 use Laravel\Nova\Fields\Field;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -17,7 +18,12 @@ class Tags extends Field
     protected function fillAttributeFromRequest(NovaRequest $request, $requestAttribute, $model, $attribute)
     {
         if ($request->exists($requestAttribute)) {
-            $model->{$attribute} = json_decode($request[$requestAttribute]);
+            // Data to be stored
+            $attributes = json_decode($request[$requestAttribute]);
+            // Only get the value of the text key if it exists
+            $tags = Arr::pluck($attributes, 'text');
+            // Store the data
+            $model->{$attribute} = $tags;
         }
     }
 

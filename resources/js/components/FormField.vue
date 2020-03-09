@@ -30,8 +30,8 @@ export default {
 
     mounted() {
         // Set up default parameters
-        this.autocompleteItems  = (this.field.autocompleteItems) ? this.field.autocompleteItems : this.autocompleteItems;
-        this.addOnKeys          = (this.field.addOnKeys) ? this.field.addOnKeys : this.addOnKeys;
+        this.autocompleteItems = (this.field.autocompleteItems) ? this.field.autocompleteItems : this.autocompleteItems;
+        this.addOnKeys = (this.field.addOnKeys) ? this.field.addOnKeys : this.addOnKeys;
     },
 
     methods: {
@@ -41,7 +41,13 @@ export default {
         setInitialValue() {
             this.value = this.field.value || '';
             if (this.value !== '') {
-                this.tags = this.value;
+                let tags = [];
+                this.value.forEach(function (item, index) {
+                    // Check if the data needs conversion
+                    tags.push((typeof item === "object" && item.hasOwnProperty('text')) ? item : {'text': item});
+                });
+                // Store the tags array
+                this.tags = tags;
             }
         },
 

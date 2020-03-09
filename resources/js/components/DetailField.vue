@@ -1,5 +1,5 @@
 <template>
-    <panel-item :field="newField" />
+    <panel-item :field="fieldLabel" />
 </template>
 
 <script>
@@ -9,7 +9,7 @@
         data() {
             return {
                 tags: '',
-                newField: {},
+                fieldLabel: {},
                 tagsWrapperClass: 'nti-tags-wrapper',
                 tagClass: 'nti-tag',
             }
@@ -17,16 +17,18 @@
         props: ['resource', 'resourceName', 'resourceId', 'field'],
         mounted() {
             vm = this;
-            this.newField = this.field;
+            this.fieldLabel = this.field;
 
             if (this.field.value) {
                 let items = this.field.value;
                 items.forEach(function (item, index) {
-                    vm.tags += '<span class="' + vm.tagClass + '">' + item.text + '</span>';
+                    // Backward compatibility in case tags are stored as object
+                    let label = (typeof item === "object" && item.hasOwnProperty('text')) ? item.text : item;
+                    vm.tags += '<span class="' + vm.tagClass + '">' + label + '</span>';
                 });
 
-                this.newField.value = '<div class="' + this.tagsWrapperClass + '">' + vm.tags + '</div>';
-                this.newField.asHtml = true; // displays as html in the PanelItem component
+                this.fieldLabel.value = '<div class="' + this.tagsWrapperClass + '">' + this.tags + '</div>';
+                this.fieldLabel.asHtml = true; // displays as html in the PanelItem component
             }
         }
     }
