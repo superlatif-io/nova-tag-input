@@ -2,10 +2,20 @@
     <default-field :field="field" :errors="errors">
         <template slot="field">
             <vue-tags-input v-model="tag" :tags="tags" @tags-changed="tagsChanged"
-                            :add-on-key="addOnKeys"
-                            :allow-edit-tags="field.allowEditTags"
                             :placeholder="field.placeholder"
                             :autocompleteItems="filteredItems"
+                            :add-on-key="addOnKeys"
+                            :add-from-paste="field.addFromPaste"
+                            :add-on-blur="field.addOnBlur"
+                            :add-only-from-autocomplete="field.addOnlyFromAutocomplete"
+                            :allow-edit-tags="field.allowEditTags"
+                            :autocomplete-always-open="field.autocompleteAlwaysOpen"
+                            :autocomplete-filter-duplicates="field.autocompleteFilterDuplicates"
+                            :autocomplete-min-length="field.autocompleteMinLength"
+                            :avoid-adding-duplicates="field.avoidAddingDuplicates"
+                            :delete-on-backspace="field.deleteOnBackspace"
+                            :disabled="field.disabled"
+                            :max-tags="field.maxTags"
             />
         </template>
     </default-field>
