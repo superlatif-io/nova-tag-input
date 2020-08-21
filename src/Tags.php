@@ -32,9 +32,16 @@ class Tags extends Field
         return $this->withMeta(['placeholder' => $placeholder]);
     }
 
+    // Used to generate tags while typing
     public function addOnKeys(array $keys)
     {
         return $this->withMeta(['addOnKeys' => $keys]);
+    }
+
+    // Defines the characters which splits a text into different pieces, to generate tags out of this pieces.
+    public function separators(array $separators)
+    {
+        return $this->withMeta(['separators' => $separators]);
     }
 
     // If it's true, the user can paste into the input element and vue-tags-input will create tags out of the incoming text.

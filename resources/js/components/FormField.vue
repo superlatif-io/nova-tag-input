@@ -4,7 +4,8 @@
             <vue-tags-input v-model="tag" :tags="tags" @tags-changed="tagsChanged"
                             :placeholder="field.placeholder"
                             :autocompleteItems="filteredItems"
-                            :add-on-key="addOnKeys"
+                            :add-on-key="field.addOnKeys"
+                            :separators="field.separators"
                             :add-from-paste="field.addFromPaste"
                             :add-on-blur="field.addOnBlur"
                             :add-only-from-autocomplete="field.addOnlyFromAutocomplete"
@@ -30,7 +31,6 @@ export default {
         return {
             tag: '',
             tags: [],
-            addOnKeys: [13, ',', ';'],
             autocompleteItems: [],
         }
     },
@@ -41,7 +41,6 @@ export default {
     mounted() {
         // Set up default parameters
         this.autocompleteItems = (this.field.autocompleteItems) ? this.field.autocompleteItems : this.autocompleteItems;
-        this.addOnKeys = (this.field.addOnKeys) ? this.field.addOnKeys : this.addOnKeys;
     },
 
     methods: {
