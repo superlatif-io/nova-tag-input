@@ -27,9 +27,9 @@ class Tags extends Field
         }
     }
 
-    public function placeholder(string $placeholder)
+    public function placeholder($text)
     {
-        return $this->withMeta(['placeholder' => $placeholder]);
+        return $this->withMeta(['placeholder' => $text]);
     }
 
     // Used to generate tags while typing
