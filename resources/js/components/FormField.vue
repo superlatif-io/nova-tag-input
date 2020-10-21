@@ -1,5 +1,5 @@
 <template>
-    <default-field :field="field" :errors="errors">
+    <default-field :field="field" :errors="errors" :show-help-text="showHelpText">
         <template slot="field">
             <vue-tags-input v-model="tag" :tags="tags" @tags-changed="tagsChanged"
                             :placeholder="field.placeholder"
@@ -32,6 +32,7 @@ export default {
             tag: '',
             tags: [],
             autocompleteItems: [],
+            showHelpText: true,
         }
     },
     mixins: [FormField, HandlesValidationErrors],
