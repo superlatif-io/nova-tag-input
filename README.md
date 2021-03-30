@@ -57,3 +57,9 @@ Tags::make(__("Tags"), 'tags')
 | deleteOnBackspace            | Delete tags using backspace                                              | Boolean | true       |
 | disabled                     | Disable the field                                                        | Boolean | false      |
 | maxTags                      | Max number of tags                                                       | Boolean | -          |
+
+## Support us!
+
+If you think we saved you some time on your development, please consider showing your appreciation 😁
+
+<a href="https://www.buymeacoffee.com/superlatif" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" width="200"></a>
