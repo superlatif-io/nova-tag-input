@@ -19,7 +19,17 @@
 /**
 * Plugin styles
  */
+.vue-tags-input {
+    max-width: none !important;
+}
+.ti-input {
+    border-radius: 0.5rem;
+    padding: 0.2rem !important;
+}
 .ti-tag {
+    padding: 3px 4px 3px 7px !important;
+    border-radius: 0.2rem !important;
+
     &.ti-valid {
         background-color: var(--primary) !important;
     }
