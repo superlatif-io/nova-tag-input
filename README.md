@@ -4,6 +4,9 @@ This plugin incorporate the [Vue Tags Input](https://github.com/JohMun/vue-tags-
 
 ![Nova Tag Input](https://superlatif.io/packages/nova-tag-input/tags-input-nova.gif?1)
 
+## Nova 4
+This release must be used with Nova version 4 and above. Thanks to @dmason30 for the PR. To install a Nova 3 compatible version please see at the end.
+
 ## Installing
 
 Using Composer:
@@ -57,6 +60,12 @@ Tags::make(__("Tags"), 'tags')
 | deleteOnBackspace            | Delete tags using backspace                                              | Boolean | true       |
 | disabled                     | Disable the field                                                        | Boolean | false      |
 | maxTags                      | Max number of tags                                                       | Boolean | -          |
+
+## Installing
+To use a Nova 3 compatible version please use the following command:
+```
+composer require superlatif/nova-tag-input:3.0
+```
 
 ## Support us!
 
