@@ -21,7 +21,7 @@ class NovaExtension {
     webpackConfig(webpackConfig) {
         webpackConfig.externals = {
             vue: "Vue",
-            'laravel': "LaravelNova"
+            'laravel-nova': "LaravelNova"
         };
 
         // webpackConfig.resolve.alias = {
