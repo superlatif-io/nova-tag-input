@@ -1,5 +1,5 @@
 let mix = require('laravel-mix')
-require('./mix.js');
+require('./nova.mix.js');
 
 mix.setPublicPath('dist')
     .js('resources/js/field.js', 'js')
