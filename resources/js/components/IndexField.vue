@@ -9,7 +9,7 @@
         data() {
             return {
                 tags: '',
-                fieldLabel: '',
+                fieldLabel: this.field.value || this.field.displayedAs || '—',
                 tagsWrapperClass: 'nti-tags-wrapper nti-tags-wrapper-index',
                 tagClass: 'nti-tag',
             }
@@ -17,10 +17,9 @@
         props: ['resourceName', 'field'],
         mounted() {
             vm = this;
-            this.newField = this.field;
-            let items = this.field.value || this.field.displayedAs;
+            let items = this.fieldLabel;
 
-            if (items) {
+            if (items instanceof Array && items.length) {
                 items.forEach(function (item, index) {
                     // Backward compatibility in case tags are stored as object
                     let label = (typeof item === "object" && item.hasOwnProperty('text')) ? item.text : item;

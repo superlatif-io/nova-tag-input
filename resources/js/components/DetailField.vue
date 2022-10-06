@@ -17,10 +17,10 @@
         props: ['resource', 'resourceName', 'resourceId', 'field'],
         mounted() {
             vm = this;
-            this.fieldLabel = this.field;
-            let items = this.field.value || this.field.displayedAs;
+            this.fieldLabel = { ...this.field };
+            let items = this.fieldLabel.value || this.fieldLabel.displayedAs;
 
-            if (items) {
+            if (items instanceof Array && items.length) {
                 items.forEach(function (item, index) {
                     // Backward compatibility in case tags are stored as object
                     let label = (typeof item === "object" && item.hasOwnProperty('text')) ? item.text : item;
@@ -28,8 +28,10 @@
                 });
 
                 this.fieldLabel.value = '<div class="' + this.tagsWrapperClass + '">' + this.tags + '</div>';
-                this.field.displayedAs = this.field.value;
+                this.fieldLabel.displayedAs = this.field.value;
                 this.fieldLabel.asHtml = true; // displays as html in the PanelItem component
+            } else {
+                this.fieldLabel.displayedAs = this.fieldLabel.displayedAs || '—';
             }
         }
     }
