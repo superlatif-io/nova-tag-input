@@ -10,7 +10,7 @@
             return {
                 tags: '',
                 fieldLabel: '',
-                tagsWrapperClass: 'nti-tags-wrapper',
+                tagsWrapperClass: 'nti-tags-wrapper nti-tags-wrapper-index',
                 tagClass: 'nti-tag',
             }
         },
@@ -18,9 +18,9 @@
         mounted() {
             vm = this;
             this.newField = this.field;
+            let items = this.field.value || this.field.displayedAs;
 
-            if (this.field.value) {
-                let items = this.field.value;
+            if (items) {
                 items.forEach(function (item, index) {
                     // Backward compatibility in case tags are stored as object
                     let label = (typeof item === "object" && item.hasOwnProperty('text')) ? item.text : item;

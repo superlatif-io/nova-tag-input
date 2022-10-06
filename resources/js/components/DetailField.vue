@@ -18,9 +18,9 @@
         mounted() {
             vm = this;
             this.fieldLabel = this.field;
+            let items = this.field.value || this.field.displayedAs;
 
-            if (this.field.value) {
-                let items = this.field.value;
+            if (items) {
                 items.forEach(function (item, index) {
                     // Backward compatibility in case tags are stored as object
                     let label = (typeof item === "object" && item.hasOwnProperty('text')) ? item.text : item;
@@ -28,6 +28,7 @@
                 });
 
                 this.fieldLabel.value = '<div class="' + this.tagsWrapperClass + '">' + this.tags + '</div>';
+                this.field.displayedAs = this.field.value;
                 this.fieldLabel.asHtml = true; // displays as html in the PanelItem component
             }
         }
