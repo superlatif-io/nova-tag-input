@@ -18,6 +18,9 @@ composer require superlatif/nova-tag-input
 
 ### Basic
 ```
+use Superlatif\NovaTagInput\Tags;
+// ...
+
 Tags::make(__("Tags"), 'tags')
     ->help("Press ENTER to add tag")
     ->placeholder("Add a new tag")
